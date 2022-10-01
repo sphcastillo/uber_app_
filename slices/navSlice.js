@@ -31,3 +31,13 @@ export const navSlice = createSlice({
 // expose these actions
 // exporting our navigation slice actions
 export const { setOrigin, setDestination, setTravelTimeInformation } = navSlice.actions;
+
+
+// Selectors - This is how we pull information from the data layer
+// this is how we grab the information from the data layer
+
+export const selectOrigin = (state)  => state.nav.origin;
+export const selectDestination = (state) => state.nav.destination;
+export const selectTravelTimeInformation = (state) => state.nav.travelTimeInformation;
+
+export default navSlice.reducer;
