@@ -1,19 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    // point A - where are you right now?
+
     origin: null,
     destination: null,
-    // info that's regarding how much time it takes to get from point A to point B
     travelTimeInformation: null,
+
 }
 
 export const navSlice = createSlice({
-    name: "nav",
+    name: 'nav',
     initialState,
-    // reducers are functions that are going to be called when we dispatch an action
-    // set origin, set destination, set travel time information
-    // then part of data layer is going to be updated
     reducers: {
         setOrigin: (state, action) => {
             state.origin = action.payload;
@@ -23,21 +20,18 @@ export const navSlice = createSlice({
         },
         setTravelTimeInformation: (state, action) => {
             state.travelTimeInformation = action.payload;
-        },
-    },
+        }
+    }
 });
 
-// expose the app to the outside world - tap into it
-// expose these actions
-// exporting our navigation slice actions
-export const { setOrigin, setDestination, setTravelTimeInformation } = navSlice.actions;
+export const  { setOrigin, setDestination, setTravelTimeInformation } = navSlice.actions;
 
 
-// Selectors - This is how we pull information from the data layer
-// this is how we grab the information from the data layer
+//Selectors
 
-export const selectOrigin = (state)  => state.nav.origin;
+export const selectOrigin = (state) => state.nav.origin;
 export const selectDestination = (state) => state.nav.destination;
 export const selectTravelTimeInformation = (state) => state.nav.travelTimeInformation;
 
 export default navSlice.reducer;
+
