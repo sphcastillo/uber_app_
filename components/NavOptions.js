@@ -25,6 +25,7 @@ const NavOptions = () => {
 
     const navigation = useNavigation();
     const origin = useSelector(selectOrigin);
+    
     return (
         <FlatList 
             data={data}
@@ -36,7 +37,7 @@ const NavOptions = () => {
                     onPress={() =>  navigation.navigate(item.screen)}
                     disabled={!origin}
                 >
-                    <View>
+                    <View style={tw`${!origin && 'opacity-20'}`}>
                         <Image  
                             style={{ width: 120, height: 120, resizeMode: "contain" }}
                             source={{ uri: item.image }}
