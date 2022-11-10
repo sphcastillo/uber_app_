@@ -5,7 +5,7 @@ const RideOptionsCard = () => {
     return (
         <View>
             <Text>RideOptionsCard</Text>
-            <Text>Hello - why aren't you showing up?</Text>
+            <Text>Here are your ride options</Text>
         </View>
     )
 }
