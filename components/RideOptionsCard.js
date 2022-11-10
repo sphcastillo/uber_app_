@@ -55,7 +55,7 @@ const RideOptionsCard = () => {
                 renderItem={({ item: { id, title, multiplier, image }, item }) => (
                     <TouchableOpacity 
                         onPress={() => setSelected(item)}
-                        style={tw`flex-row justify-between items-center px-10 ${ id === selected?.id && "bg-gray-200"}`}
+                        style={tw`flex-row justify-between items-center px-3 ${ id === selected?.id && "bg-gray-200"}`}
                     >
                         <Image 
                             style={{
@@ -70,7 +70,12 @@ const RideOptionsCard = () => {
                             <Text>{travelTimeInformation?.duration.text} Travel time</Text>
                         </View>
                         <Text style={tw`text-lg`}>
-                            $99
+                            {new Intl.NumberFormat('en-us', {
+                                style: 'currency',
+                                currency: 'USD',
+                            }).format(
+                                (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100
+                            )}
                         </Text>
                     </TouchableOpacity>
                 )}
